@@ -1,4 +1,4 @@
-const { readData, writeData } = require("../routes");
+const { readData, writeData } = require("../utils/data");
 
 const getAllGames = async (req, res) => {
   const games = await readData("./data/games.json");
