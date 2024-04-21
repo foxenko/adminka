@@ -27,6 +27,7 @@ gamesRouter.post(
   getAllGames,
   checkIsTitleInArray,
   updateGamesArray,
+  updateGamesFile,
   addGame
 );
 
