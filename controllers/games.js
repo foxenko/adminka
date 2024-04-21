@@ -41,3 +41,5 @@ const deleteGame = async (req, res) => {
     updated: req.game,
   });
 };
+
+module.exports = { getAllGames, deleteGame };
