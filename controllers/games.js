@@ -53,7 +53,7 @@ const addGame = async (req, res) => {
     } else {
       maximalId = 0;
     }
-    req.updatedObject = {
+    req.updatedObject = {   
       id: maximalId + 1,
       title: req.body.title,
       image: req.body.image,
@@ -61,6 +61,10 @@ const addGame = async (req, res) => {
       description: req.body.description,
     };
     req.games = [...req.games, req.updatedObject];
+  } else {
+    res.status(400);
+    res.send({ status: "error", message: "Игра с таким именем уже есть." });
+    return
   }
 
   await writeData("./data/games.json", req.games);
