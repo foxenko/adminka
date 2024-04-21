@@ -1,9 +1,13 @@
-const mainRoute = require("express").Router();
+const mainRouter = require("express").Router();
+const fs = require("fs").promises;
 
-mainRoute.get("/", (req, res) => {
+const sendHtml = (req, res) => {
   fs.readFile("./public/index.html", "utf-8").then((data) => {
-    res.header("Content-Type", "text/html").send(data);
+    res.header("Content-Type", "text/html");
+    res.send(data);
   });
-});
+};
 
-module.exports = mainRoute;
+mainRouter.get("/", sendHtml);
+
+module.exports = mainRouter;
