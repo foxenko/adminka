@@ -28,7 +28,7 @@ gamesRouter.post(
   checkIsTitleInArray,
   updateGamesArray,
   updateGamesFile,
-  addGame
+  sendUpdatedGames
 );
 
 module.exports = gamesRouter;
