@@ -1,4 +1,3 @@
-// routes/games.js
 const gamesRouter = require("express").Router(); // Создали роутер
 const { readData, writeData } = require("../utils/data"); // Чтение и запись данных в JSON-файл
 
