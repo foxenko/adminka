@@ -48,11 +48,24 @@ const updateGamesFile = async (req, res, next) => {
   next();
 };
 
-const findGameById
+const findGameById = (req, res, next) => {
+  const id = Number(req.params.id);
+  req.game = req.games.find((item) => item.id === id);
+  next();
+};
+
+const deleteGame = (req, res, next) => {
+  const id = Number(req.params.id);
+  const index = req.games.findIndex((item) => item.id === req.game.id);
+  req.games.splice(index, 1);
+  next();
+};
 
 module.exports = {
   getAllGames,
   checkIsTitleInArray,
   updateGamesArray,
   updateGamesFile,
+  findGameById,
+  deleteGame,
 };
