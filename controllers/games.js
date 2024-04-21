@@ -1,30 +1,10 @@
 const { readData, writeData } = require("../utils/data");
 
-const getAllGames = async (req, res) => {
-  const games = await readData("./data/games.json");
-  if (!games) {
-    res.status(400);
-    res.send({
-      status: "error",
-      message: "Нет игр в базе данных. Добавьте игру.",
-    });
-    return;
-  }
-  req.games = games;
+const sendAllGames = async (req, res) => {
   res.send(req.games);
 };
 
 const deleteGame = async (req, res) => {
-  const games = await readData("./data/games.json");
-  if (!games) {
-    res.status(400);
-    res.send({
-      status: "error",
-      message: "Нет игр в базе данных. Добавьте игру.",
-    });
-    return;
-  }
-  req.games = games;
   const id = Number(req.params.id);
   req.game = req.games.find((item) => item.id === id);
   const index = req.games.findIndex((item) => item.id === req.game.id);
@@ -37,8 +17,6 @@ const deleteGame = async (req, res) => {
 };
 
 const addGame = async (req, res) => {
-  req.isNew = !Boolean(req.games.find((item) => item.title === req.body.title));
-
   if (req.isNew) {
     const inArray = req.games.map((item) => Number(item.id));
     let maximalId;
@@ -47,7 +25,7 @@ const addGame = async (req, res) => {
     } else {
       maximalId = 0;
     }
-    req.updatedObject = {   
+    req.updatedObject = {
       id: maximalId + 1,
       title: req.body.title,
       image: req.body.image,
@@ -58,7 +36,7 @@ const addGame = async (req, res) => {
   } else {
     res.status(400);
     res.send({ status: "error", message: "Игра с таким именем уже есть." });
-    return
+    return;
   }
 
   await writeData("./data/games.json", req.games);
@@ -68,4 +46,4 @@ const addGame = async (req, res) => {
   });
 };
 
-module.exports = { getAllGames, deleteGame, addGame };
+module.exports = { sendAllGames, deleteGame, addGame };
