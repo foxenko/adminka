@@ -25,17 +25,11 @@ const deleteGame = async (req, res) => {
     return;
   }
   req.games = games;
-
   const id = Number(req.params.id);
-
   req.game = req.games.find((item) => item.id === id);
-
   const index = req.games.findIndex((item) => item.id === req.game.id);
-
   req.games.splice(index, 1);
-
   await writeData("./data/games.json", req.games);
-
   res.send({
     games: req.games,
     updated: req.game,
