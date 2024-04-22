@@ -7,9 +7,10 @@ const sendAllGames = async (req, res) => {
 const sendUpdatedGames = async (req, res) => {
   res.send({
     games: req.games,
-    updated: req.updatedObject,
+    updated: req.game,
   });
 };
+// updatedObject
 
 const addGame = async (req, res) => {
   res.send({
