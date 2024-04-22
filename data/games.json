@@ -15,23 +15,23 @@
   },
   {
     "id": 4,
-    "title": "ya",
-    "image": "https://ya.ru",
-    "link": "https://ya.ru",
-    "description": "https://ya.ru"
-  },
-  {
-    "id": 5,
-    "title": "yassss",
-    "image": "https://yas.ru",
-    "link": "https://ya.sru",
-    "description": "https://yass.ru"
-  },
-  {
-    "id": 6,
     "title": "test1",
     "image": "https://ya.ru",
     "link": "https://ya.ru",
-    "description": "111testhttps://ya.ru"
+    "description": "test1"
+  },
+  {
+    "id": 5,
+    "title": "test2",
+    "image": "https://ya.ru",
+    "link": "https://ya.ru",
+    "description": "test2"
+  },
+  {
+    "id": 6,
+    "title": "test3",
+    "image": "https://ya.ru",
+    "link": "https://ya.ru",
+    "description": "test3"
   }
 ]
