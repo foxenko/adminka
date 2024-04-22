@@ -1,4 +1,4 @@
-const { readData } = require("../utils/data");
+const { readData, writeData } = require("../utils/data");
 
 const getAllGames = async (req, res, next) => {
   const games = await readData("./data/games.json");
@@ -56,7 +56,7 @@ const findGameById = (req, res, next) => {
 
 const deleteGame = (req, res, next) => {
   const id = Number(req.params.id);
-  const index = req.games.findIndex((item) => item.id === req.game.id);
+  const index = req.games.findIndex((item) => item.id === id);
   req.games.splice(index, 1);
   next();
 };
