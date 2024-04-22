@@ -1,9 +1,5 @@
 const gamesRouter = require("express").Router();
-const {
-  sendAllGames,
-  sendUpdatedGames,
-  addGame,
-} = require("../controllers/games");
+const { sendAllGames, sendUpdatedGames } = require("../controllers/games");
 const {
   getAllGames,
   checkIsTitleInArray,
